@@ -51,11 +51,16 @@ public class EmployeeRepository {
             }
 
             if (lastName != null && firstName == null) {
-                if (employee.getFirstName().equalsIgnoreCase(lastName )) {
+                if (employee.getFirstName().equalsIgnoreCase(lastName)) {
                     employeeWithParams.add(employee);
                 }
             }
         }
         return employeeWithParams;
+    }
+
+    public Employee saveEmployee(Employee newEmployee) {
+        employeeList.add(newEmployee);
+        return newEmployee;
     }
 }
