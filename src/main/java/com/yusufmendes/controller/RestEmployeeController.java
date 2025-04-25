@@ -1,6 +1,7 @@
 package com.yusufmendes.controller;
 
 import com.yusufmendes.model.Employee;
+import com.yusufmendes.model.UpdateEmployeeRequest;
 import com.yusufmendes.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,5 +41,10 @@ public class RestEmployeeController {
     @DeleteMapping(path = "/delete-employee/{id}")
     public boolean deleteEmployeeById(@PathVariable(name = "id", required = true) String id) {
         return employeeService.deleteEmployee(id);
+    }
+
+    @PutMapping(path = "/update-employee/{id}")
+    public Employee updateEmployee(@PathVariable(name = "id") String id, @RequestBody UpdateEmployeeRequest updateEmployeeRequest) {
+        return employeeService.updateEmployee(id, updateEmployeeRequest);
     }
 }

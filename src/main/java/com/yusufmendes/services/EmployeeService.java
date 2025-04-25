@@ -1,6 +1,7 @@
 package com.yusufmendes.services;
 
 import com.yusufmendes.model.Employee;
+import com.yusufmendes.model.UpdateEmployeeRequest;
 import com.yusufmendes.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,9 @@ public class EmployeeService {
 
     public boolean deleteEmployee(String id) {
         return employeeRepository.deleteEmployee(id);
+    }
+
+    public Employee updateEmployee(String id, UpdateEmployeeRequest updatedEmployee) {
+        return employeeRepository.updateEmployee(id,updatedEmployee);
     }
 }
